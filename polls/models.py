@@ -11,7 +11,11 @@ class Question(models.Model):
         return self.question_text
 
     def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelata(days=1)
+        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+
+    was_published_recently.admin_order_field = 'pub_date'  # 원칙적으로 임의 메서드에 의한 값은 정렬 불가
+    was_published_recently.boolean = True  # True로 설정하면 값 대신 아이콘 표시
+    was_published_recently.short_description = 'Published recently?'
 
 
 class Choice(models.Model):

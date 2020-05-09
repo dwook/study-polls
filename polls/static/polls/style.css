@@ -1,0 +1,9 @@
+body {
+  height:100vh;
+  background: white url("images/background.jpg") no-repeat;
+  background-position: right bottom;
+}
+
+li a {
+  color: green;
+}
